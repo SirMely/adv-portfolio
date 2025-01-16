@@ -411,7 +411,7 @@ span {
 
 .tech-lang {
     padding-top: 100px;
-    padding-bottom: 300px;
+    padding-bottom: 250px;
 }
 
 .tech-header {
@@ -435,13 +435,18 @@ span {
 
 .tech-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    grid-template-columns: repeat(3, 1fr);
     justify-content: center;
     align-items: center;
     text-align: center;
     gap: 1rem;
     padding: 1rem 80px;
     font-size: 1.2rem;
+}
+@media (max-width: 768px) {
+    .tech-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+    }
 }
 
 .tech-container .lang-box {
@@ -521,7 +526,8 @@ span {
 }
 
 #projects {
-    padding-bottom: 200px;
+    scroll-margin-top: 100px;
+    padding-bottom: 150px;
 
 }
 
