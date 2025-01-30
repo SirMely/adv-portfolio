@@ -557,6 +557,10 @@ span {
     margin-bottom: 1rem;
 }
 
+#gainaxImg img {
+    object-position: center top !important;
+}
+
 .main-row {
     display: flex;
     align-items: center;
