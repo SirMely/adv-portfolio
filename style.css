@@ -31,7 +31,8 @@ body {
 }
 
 #playButton {
-    display: none;
+    font-size: 4em;
+    cursor: pointer;
 }
 
 @media (max-width: 425px) {

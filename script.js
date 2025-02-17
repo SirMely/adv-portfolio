@@ -1,59 +1,33 @@
 // bg-music
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     var music = document.getElementById("bg-music");
+    var playButton = document.getElementById("playButton");
 
-    if (music) {
+    if (music && playButton) {
         console.log("Audio element found:", music);
 
-        // Function to start the music and set up looping
-        function startMusic() {
-            music.currentTime = 0;
-            music.play().then(() => {
-                console.log("Playing music from the beginning");
-            }).catch(error => {
-                console.error("Autoplay failed:", error);
-                // Show a play button if autoplay fails
-                showPlayButton();
-            });
-
-            music.addEventListener('timeupdate', function() {
-                if (music.currentTime >= music.duration) {
-                    music.currentTime = 0;
-                    music.play();
-                    console.log("Looping back to start");
-                }
-            });
+        // Function to toggle play/pause
+        function toggleMusic() {
+            if (music.paused) {
+                music.play().then(() => {
+                    console.log("Playing music");
+                }).catch(error => {
+                    console.error("Playback failed:", error);
+                });
+            } else {
+                music.pause();
+                console.log("Music paused");
+            }
         }
 
-        // Function to show a play button (Could have honestly made this a lot easier on myself but the code is 6 months old so I don't want to change anything lol.)
-        function showPlayButton() {
-            var playButton = document.createElement('button');
-            playButton.textContent = "♬";
-            playButton.style.position = 'absolute';
-            playButton.style.bottom = '48px';
-            playButton.style.left = '20px';
-            playButton.style.zIndex = '1000';
-            playButton.style.padding = '10px 20px';
-            playButton.style.backgroundColor = '#ad9470';
-            playButton.style.color = 'white';
-            playButton.style.border = 'none';
-            playButton.style.borderRadius = '0.5rem';
-            playButton.style.cursor = 'pointer';
+        // Add click event to the h1 element
+        playButton.addEventListener('click', toggleMusic);
 
-            document.querySelector('#hero').appendChild(playButton);
-
-            playButton.addEventListener('click', function() {
-                playButton.remove();
-                startMusic();
-            });
-        }
-
-        // Try to start the music automatically
-        startMusic();
     } else {
         console.error("Audio element not found");
     }
 });
+
 
 // bg-video
 document.addEventListener("DOMContentLoaded", function() {
