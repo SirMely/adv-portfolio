@@ -1,9 +1,10 @@
 // bg-music
 document.addEventListener("DOMContentLoaded", function () {
-    var music = document.getElementById("bg-music");
-    var playButton = document.getElementById("playButton");
+    let music = document.getElementById("bg-music");
+    let playButton = document.getElementById("playButton");
+    let playVolume = document.getElementById('playVolume');
 
-    if (music && playButton) {
+    if (music && playButton && playVolume) {
         console.log("Audio element found:", music);
 
         // Function to toggle play/pause
@@ -22,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Add click event to the h1 element
         playButton.addEventListener('click', toggleMusic);
+        playVolume.addEventListener('click', toggleMusic);
 
     } else {
         console.error("Audio element not found");

@@ -120,12 +120,6 @@ span {
     -webkit-text-stroke: 1px #ad9470;
 }
 
-.starter a {
-    font-size: 3rem;
-    text-decoration: none;
-    color: #ad9470;
-}
-
 .starter {
     display: inline-block;
     text-align: center;
@@ -142,6 +136,33 @@ span {
     transform: scale(1.01) translateY(-5px);
     background: transparent;
     color: #ad9470;
+}
+
+/* Volume Icon for Mobile */
+
+.volume-icon-container {
+    position: absolute;
+    bottom: 40px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    display: none;
+}
+
+.volume-icon i {
+    font-size: 3rem;
+    color: transparent;
+    -webkit-text-stroke: 1px #ad9470;
+    cursor: pointer;
+}
+
+@media (max-width: 426px) {
+    .volume-icon-container {
+        display: inherit;
+    }
+    .starter-container {
+        display: none;
+    }
 }
 
 /* Burger stuff */
@@ -510,10 +531,12 @@ span {
 /*  */
 /*  */
 
+/* Project Section (I'm not sure why I stopped doing this, it confused me lol) "I mean the labeling my css */
 
 .main-text {
     text-align: center;
     padding-bottom: 4rem;
+    margin: 0 5px;
 }
 
 .main-text h2 {
